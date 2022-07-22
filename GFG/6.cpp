@@ -4,7 +4,7 @@ public:
     int divisorSubstrings(int num, int k) {
         
         
-        string str=to_string(num);
+       string str=to_string(num);
         int i=0,j=0,n=str.length();
         int k_beaut=0;
         while(j<n)
@@ -31,24 +31,33 @@ public:
         
         
         
-        /*my method:
+        /*my method:error?!!!!!!!!!!1
         string str=to_string(num);
         int len=str.length();
-        int i=0;
-        string substrr=str.substr(i,k);
-        int count=0;
+        
+        string substrr=str.substr(0,k);//first window
         int n=stoi(substrr);
+        
+        int count=0;
+        
+        // cout<<n<<" ";
         if(n!=0 && num%n==0)
         {
             count++;
+           
             
         }
-        for(int z=1,j=k;j<len;z++,j++)
+       //subsequent windows 
+        for(int i=1;i<len;i++)
         {
-            substrr=str.substr(j-z,j);
+            
+            substrr=str.substr(i,k);i++;
             n=stoi(substrr);
+            cout<<n<<" ";
+            //cout<<n<<" ";
             if(n!=0 && num%n==0)
             {
+                
                 count++;
             }
             

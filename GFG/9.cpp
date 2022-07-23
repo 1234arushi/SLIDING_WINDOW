@@ -16,7 +16,8 @@ class Solution
         for(int i=0;i<n;i++)
         {
             sum=sum+arr[i];
-            while(sum>s &&start<i)
+            while(sum>s &&start<i)//start<i -> removing all the elements 
+                                  //until sum>s except the last one
             {
                 sum=sum-arr[start];
                 start++;

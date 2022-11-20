@@ -1,25 +1,24 @@
-//https://leetcode.com/problems/subarray-product-less-than-k/
+//https://leetcode.com/problems/subarray-product-less-than-k/submissions/846848716/
 
 class Solution {
 public:
     int numSubarrayProductLessThanK(vector<int>& nums, int k) {
-        
-        
-        if(k<=1)//k<=1 cuz...all elements are "+" so there product will not be less 
-            //than 1 and less than even 1
+        //as we have postive integers in array so prod will not 
+        //be less than = to 1
+        if(k<=1)//gives runtime error if not applied
         {
             return 0;
         }
-        int prod=1,count=0,l=0;
-        for(int r=0;r<nums.size();r++)
+        
+        int prod=1,i=0,count=0;
+        for(int j=0;j<nums.size();j++)
         {
-            prod*=nums[r];
+            prod*=nums[j];
             while(prod>=k)
             {
-                prod/=nums[l];
-                l++;
+                prod/=nums[i++];
             }
-            count+=r-l+1;
+            count+=j-i+1;
         }
         return count;
         
